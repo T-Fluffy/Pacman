@@ -17,9 +17,9 @@ public class Movement : MonoBehaviour
         this.startingPosition = this.transform.position;
     }
     private void Start(){
-        ResetStates();
+        ResetState();
     }
-    public void ResetStates(){
+    public void ResetState(){
         this.speedMultiplier=1.0f;
         this.direction = this.initialDirection;
         this.nextDirection = Vector2.zero;

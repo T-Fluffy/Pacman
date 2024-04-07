@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
     public Pacman pacman;
     public Transform pallets;
     [field: SerializeField] public int score {get;private set;}
-    public int lives {get; private set;}
+    [field: SerializeField] public int lives {get; private set;}
     public int ghostMultiplier {get; private set;} = 1;
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -45,9 +45,9 @@ public class GameManager : MonoBehaviour
         ResetGhostMultiplier();
         for (int i = 0; i < this.ghosts.Length; i++)
         {
-            this.ghosts[i].gameObject.SetActive(true);
+            this.ghosts[i].ResetState();
         }
-        this.pacman.gameObject.SetActive(true);
+        this.pacman.ResetState();
     }
     /*********************************************************
         Setting the Ghost and Pacman states ingame.
@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
         this.ghostMultiplier++;
     }
     public void PacmanEaten(){
-        this.pacman.gameObject.SetActive(true);
+        this.pacman.gameObject.SetActive(false);
         SetLives(this.lives-1);
         if (this.lives>0)
         {
