@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2825554727705091794}
   - component: {fileID: 7229119171874213133}
   - component: {fileID: 6169942902032717736}
+  - component: {fileID: 2476381286242996437}
   m_Layer: 8
   m_Name: PowerPallet
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7229119171874213133
 SpriteRenderer:
@@ -130,3 +131,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2476381286242996437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3895194724759777298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a43d533a6c85be458b86a2c8b3bb675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 50
+  duration: 8

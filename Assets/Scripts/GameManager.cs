@@ -5,9 +5,9 @@ public class GameManager : MonoBehaviour
     public Ghost[] ghosts;
     public Pacman pacman;
     public Transform pallets;
-    public int score {get;private set;}
+    [field: SerializeField] public int score {get;private set;}
     public int lives {get; private set;}
-
+    public int ghostMultiplier {get; private set;} = 1;
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
     /// any of the Update methods is called the first time.
@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
         }
     }
     private void ResetStates(){
+        ResetGhostMultiplier();
         for (int i = 0; i < this.ghosts.Length; i++)
         {
             this.ghosts[i].gameObject.SetActive(true);
@@ -63,7 +64,9 @@ public class GameManager : MonoBehaviour
         SetStates(false);
     }
     public void GhostEaten(Ghost ghost){
-        SetScore(this.score+ghost.points);
+        int points=ghost.points*this.ghostMultiplier;
+        SetScore(this.score+points);
+        this.ghostMultiplier++;
     }
     public void PacmanEaten(){
         this.pacman.gameObject.SetActive(true);
@@ -75,4 +78,33 @@ public class GameManager : MonoBehaviour
             GameOver();
         }
     }
+    public void PalletEaten(Pallet pallet){
+        pallet.gameObject.SetActive(false);
+        SetScore(this.score + pallet.points);
+        if (!HasRemainingPallet())
+        {
+            this.pacman.gameObject.SetActive(false);
+            Invoke(nameof(NewRound),3.0f);
+        }
+    }
+    public void PowerPalletEaten(PowerPallet pallet){
+
+        Invoke(nameof(ResetGhostMultiplier),pallet.duration);
+        CancelInvoke();
+        PalletEaten(pallet);
+    }
+    private bool HasRemainingPallet(){
+        foreach (Transform pallet in this.pallets)
+        {
+            if (pallet.gameObject.activeSelf)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    private void ResetGhostMultiplier(){
+        this.ghostMultiplier = 1;
+    }
+
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1371448074905068365}
   - component: {fileID: 4802530115880274007}
   - component: {fileID: 6686714002916969421}
+  - component: {fileID: 2506887404757586518}
   m_Layer: 8
   m_Name: Pallet
   m_TagString: Untagged
@@ -130,3 +131,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.25, y: 0.25}
   m_EdgeRadius: 0
+--- !u!114 &2506887404757586518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5427198065396619592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21b45c6e29efbcf4fa7820d169900356, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
