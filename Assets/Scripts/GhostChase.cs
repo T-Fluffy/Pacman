@@ -9,17 +9,21 @@ public class GhostChase : GhostBehaviour
     /// </summary>
     private void OnDisable()
     {
-        this.ghost.scatter.Enable();
+        if (this.ghost != null)
+        {
+            this.ghost.scatter.Enable();   
+        }
     }
     /// <summary>
     /// Sent when another object enters a trigger collider attached to this
     /// object (2D physics only).
     /// </summary>
+    
     /// <param name="other">The other Collider2D involved in this collision.</param>
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Node node=other.GetComponent<Node>();
-        
+        Node node = other.GetComponent<Node>();
+
         if (node != null && this.enabled && !this.ghost.frightened.enabled)
         {
             // find the shortest path to pacman to chase him
