@@ -9,11 +9,10 @@ public class GhostChase : GhostBehaviour
     /// </summary>
     private void OnDisable()
     {
-        if (this.ghost != null)
+        if (this.ghost != null&& this.ghost.scatter != null)
         {
-               return;
+            this.ghost.scatter.Enable();
         }
-        this.ghost.scatter.Enable();
     }
     /// <summary>
     /// Sent when another object enters a trigger collider attached to this

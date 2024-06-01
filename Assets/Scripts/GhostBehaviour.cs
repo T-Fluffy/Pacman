@@ -12,12 +12,14 @@ public abstract class GhostBehaviour : MonoBehaviour
     private void Awake()
     {
         this.ghost = GetComponent<Ghost>();
+        if(this.ghost!=null){
         this.enabled = false;
+        }
     }
     public void Enable(){
-        Enable(this.duration);
+        Enable2(this.duration);
     }
-    public virtual void Enable(float duration){
+    public virtual void Enable2(float duration){
         this.enabled=true;
         CancelInvoke();
         Invoke(nameof(Disable),duration);
