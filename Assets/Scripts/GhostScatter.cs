@@ -7,6 +7,10 @@ public class GhostScatter : GhostBehaviour
     /// </summary>
     private void OnDisable()
     {
+        if (ghost!=null)
+        {
+            return;
+        }
         this.ghost.chase.Enable();
     }
 

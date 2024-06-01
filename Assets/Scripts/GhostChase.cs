@@ -11,8 +11,9 @@ public class GhostChase : GhostBehaviour
     {
         if (this.ghost != null)
         {
-            this.ghost.scatter.Enable();   
+               return;
         }
+        this.ghost.scatter.Enable();
     }
     /// <summary>
     /// Sent when another object enters a trigger collider attached to this

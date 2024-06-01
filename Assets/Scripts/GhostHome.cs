@@ -31,6 +31,7 @@ public class GhostHome : GhostBehaviour
         } 
     }
     private IEnumerator ExitTransition(){
+        if(this.ghost != null){
         this.ghost.movement.SetDirection(Vector2.up,true);
         this.ghost.movement.rigidBody.isKinematic=true;
         this.ghost.movement.enabled=false;
@@ -63,5 +64,6 @@ public class GhostHome : GhostBehaviour
         this.ghost.movement.SetDirection(new Vector2(Random.value<0.5f ? -1.0f : 1.0f, 0.0f),true);
         this.ghost.movement.rigidBody.isKinematic=false;
         this.ghost.movement.enabled=true;
+        }
     }
 }
