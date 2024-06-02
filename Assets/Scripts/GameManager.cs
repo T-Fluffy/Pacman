@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Pacman pacman;
     [SerializeField] private Transform pallets;
     [SerializeField] private Text gameOverText;
+    [SerializeField] private Text gameOver2Text;
+    [SerializeField] private Button quitButton;
     [SerializeField] private Text scoreText;
     [SerializeField] private Text livesText;
 
@@ -47,11 +49,13 @@ public class GameManager : MonoBehaviour
         SetScore(0);
         SetLives(3);
         NewRound();
+        gameOver2Text.enabled = false;
     }
 
     private void NewRound()
     {
         gameOverText.enabled = false;
+        gameOver2Text.enabled = false;
 
         foreach (Transform pallet in pallets) {
             pallet.gameObject.SetActive(true);
@@ -71,12 +75,17 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
-        gameOverText.enabled = true;
+        if (lives<=0)
+        {
+         gameOverText.enabled = true;  
+        }else{
+            gameOver2Text.enabled = true;
+        }
 
         for (int i = 0; i < ghosts.Length; i++) {
             ghosts[i].gameObject.SetActive(false);
         }
-
+        quitButton.enabled=true;
         pacman.gameObject.SetActive(false);
     }
 
@@ -159,5 +168,7 @@ public class GameManager : MonoBehaviour
     {
         ghostMultiplier = 1;
     }
-
+    public void Exit(){
+        Application.Quit();
+    }
 }
