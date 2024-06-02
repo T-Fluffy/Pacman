@@ -1,6 +1,7 @@
 using UnityEngine;
+using System.Collections;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
@@ -87,8 +88,15 @@ public class GameManager : MonoBehaviour
 
     private void SetScore(int score)
     {
+         if (scoreText != null)
+    {
         this.score = score;
         scoreText.text = score.ToString().PadLeft(2, '0');
+    }
+    else
+    {
+        Debug.LogError("scoreText is null. Make sure it is properly referenced in the GameManager script.");
+    }
     }
 
     public void PacmanEaten()
@@ -103,7 +111,6 @@ public class GameManager : MonoBehaviour
             GameOver();
         }
     }
-
     public void GhostEaten(Ghost ghost)
     {
         int points = ghost.points * ghostMultiplier;
