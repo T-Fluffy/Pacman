@@ -30,5 +30,4 @@ public abstract class GhostBehavior : MonoBehaviour
 
         CancelInvoke();
     }
-
 }
