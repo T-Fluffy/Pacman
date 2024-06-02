@@ -988,6 +988,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1264470769}
     - target: {fileID: 7548731463000797902, guid: 8c4bb493c08ea6e4a9b4bc0461161fb2, type: 3}
+      propertyPath: initialBehavior
+      value: 
+      objectReference: {fileID: 638652064}
+    - target: {fileID: 7548731463000797902, guid: 8c4bb493c08ea6e4a9b4bc0461161fb2, type: 3}
       propertyPath: initialBehaviour
       value: 
       objectReference: {fileID: 638652064}
@@ -1162,6 +1166,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1264470769}
     - target: {fileID: 2323355585591076384, guid: b2c1ee9ec1c721843b6db8c0f947de85, type: 3}
+      propertyPath: initialBehavior
+      value: 
+      objectReference: {fileID: 735998351}
+    - target: {fileID: 2323355585591076384, guid: b2c1ee9ec1c721843b6db8c0f947de85, type: 3}
       propertyPath: initialBehaviour
       value: 
       objectReference: {fileID: 735998348}
@@ -1254,6 +1262,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d772b507a629a8d4e81cd28040a3edd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &735998351 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5928204810509413321, guid: b2c1ee9ec1c721843b6db8c0f947de85, type: 3}
+  m_PrefabInstance: {fileID: 735998346}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e5e793526484e64bbe311789fbf8ba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1067064425
@@ -1375,6 +1394,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1264470769}
+    - target: {fileID: 2102701376510358257, guid: 220b96cff78a64b40a349aa026d6cbd6, type: 3}
+      propertyPath: initialBehavior
+      value: 
+      objectReference: {fileID: 1481760116}
     - target: {fileID: 2102701376510358257, guid: 220b96cff78a64b40a349aa026d6cbd6, type: 3}
       propertyPath: initialBehaviour
       value: 
@@ -1610,6 +1633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30e2fa088b880654999ee0d096167e40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathSequence: {fileID: 0}
 --- !u!114 &1264470773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1890,6 +1914,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1264470769}
+    - target: {fileID: 3450734063817305297, guid: 00f6e1850a4d7bf4bbc75bbde14e7f0f, type: 3}
+      propertyPath: initialBehavior
+      value: 
+      objectReference: {fileID: 1608165696}
     - target: {fileID: 3450734063817305297, guid: 00f6e1850a4d7bf4bbc75bbde14e7f0f, type: 3}
       propertyPath: initialBehaviour
       value: 
@@ -10476,5 +10504,6 @@ MonoBehaviour:
   - {fileID: 133806951}
   pacman: {fileID: 1264470772}
   pallets: {fileID: 1773531285}
-  <score>k__BackingField: 0
-  <lives>k__BackingField: 0
+  gameOverText: {fileID: 0}
+  scoreText: {fileID: 0}
+  livesText: {fileID: 0}
