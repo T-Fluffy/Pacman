@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform pallets;
     [SerializeField] private Text gameOverText;
     [SerializeField] private Text gameOver2Text;
+    [SerializeField] private Text gameOver3Text;
     [SerializeField] private Button quitButton;
     [SerializeField] private Text scoreText;
     [SerializeField] private Text livesText;
@@ -42,25 +43,35 @@ public class GameManager : MonoBehaviour
         if (lives <= 0 && Input.anyKeyDown) {
             NewGame();
         }
+        if (!HasRemainingPallets()) 
+        {
+            StartCoroutine(ShowGameOver2Text());
+        }
     }
-
+    private IEnumerator ShowGameOver2Text()
+    {
+        gameOver2Text.enabled = true;
+        gameOver3Text.enabled = true;
+        yield return new WaitForSeconds(30f);
+        NewGame();
+    }
     private void NewGame()
     {
         SetScore(0);
         SetLives(3);
         NewRound();
         gameOver2Text.enabled = false;
+        gameOver3Text.enabled = false;
     }
 
     private void NewRound()
     {
         gameOverText.enabled = false;
         gameOver2Text.enabled = false;
-
+        gameOver3Text.enabled = false;
         foreach (Transform pallet in pallets) {
             pallet.gameObject.SetActive(true);
         }
-
         ResetState();
     }
 
@@ -69,19 +80,21 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < ghosts.Length; i++) {
             ghosts[i].ResetState();
         }
-
         pacman.ResetState();
     }
 
     private void GameOver()
     {
-        if (lives<=0)
+        if (lives <= 0)
         {
-         gameOverText.enabled = true;  
-        }else{
-            gameOver2Text.enabled = true;
+            gameOverText.enabled = true;
+            gameOver3Text.enabled = true;
         }
-
+        else if (!HasRemainingPallets())
+        {
+            gameOver2Text.enabled = true;
+            gameOver3Text.enabled = true;
+        }
         for (int i = 0; i < ghosts.Length; i++) {
             ghosts[i].gameObject.SetActive(false);
         }
