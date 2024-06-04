@@ -16,6 +16,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text scoreText;
     [SerializeField] private Text livesText;
 
+    // Fruits :
+    [SerializeField] private Transform Apples;
+    [SerializeField] private Transform Cherries;
+    [SerializeField] private Transform Strawberries;
+    [SerializeField] private Transform Oranges;
+    [SerializeField] private Transform Melons;
     private int ghostMultiplier = 1;
     private int lives = 3;
     private int score = 0;
@@ -71,6 +77,26 @@ public class GameManager : MonoBehaviour
         gameOver3Text.enabled = false;
         foreach (Transform pallet in pallets) {
             pallet.gameObject.SetActive(true);
+        }
+        foreach (Transform apple in Apples)
+        {
+            apple.gameObject.SetActive(true);
+        }
+        foreach (Transform Strawberry in Strawberries)
+        {
+            Strawberry.gameObject.SetActive(true);
+        }
+        foreach (Transform orange in Oranges)
+        {
+            orange.gameObject.SetActive(true);
+        }
+        foreach (Transform cherry in Cherries)
+        {
+            cherry.gameObject.SetActive(true);
+        }
+        foreach (Transform melon in Melons)
+        {
+            melon.gameObject.SetActive(true);
         }
         ResetState();
     }
@@ -183,5 +209,90 @@ public class GameManager : MonoBehaviour
     }
     public void Exit(){
         Application.Quit();
+    }
+    
+    // For apple eaten :
+    public void AppleEaten(Apple apple)
+    {
+        apple.gameObject.SetActive(false);
+        SetScore(score + apple.points);
+    }
+
+    private bool HasRemainingApples()
+    {
+        Apple[] apples = FindObjectsOfType<Apple>();
+        foreach (Apple apple in apples)
+        {
+            if (apple.gameObject.activeSelf)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    // For Strawberry eaten :
+    public void StrawberriesEaten(Strawberry strawberry)
+    {
+        strawberry.gameObject.SetActive(false);
+        SetScore(score + strawberry.points);
+    }
+
+    private bool HasRemainingStrawberries(){
+        Strawberry[] strawberries = FindObjectsOfType<Strawberry>();
+        foreach (Strawberry strawberry in strawberries) {
+            if (strawberry.gameObject.activeSelf) {
+                return true;
+            }
+        }
+        return false;
+    }
+    // For Orange eaten :
+    public void OrangeEaten(Orange orange)
+    {
+        orange.gameObject.SetActive(false);
+        SetScore(score + orange.points);
+    }
+
+    private bool HasRemainingOranges(){
+        Orange[] oranges = FindObjectsOfType<Orange>(); 
+        foreach (Orange orange in oranges) {
+            if (orange.gameObject.activeSelf) {
+                return true;
+            }
+        }
+        return false;
+    }
+    // For Cherry eaten :
+    public void CherryEaten(Cherry cherry)
+    {
+        cherry.gameObject.SetActive(false);
+        SetScore(score + cherry.points);
+    }
+
+    private bool HasRemainingCherries(){
+        Cherry[] cherries = FindObjectsOfType<Cherry>();
+        foreach (Cherry cherry in cherries) {
+            if (cherry.gameObject.activeSelf) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    // For Melon eaten :
+    public void MelonEaten(Melon melon)
+    {
+        melon.gameObject.SetActive(false);
+        SetScore(score + melon.points);
+    }
+
+    private bool HasRemainingMelons(){  
+        Melon[] melons = FindObjectsOfType<Melon>();
+        foreach (Melon melon in melons) {
+            if (melon.gameObject.activeSelf) {
+                return true;
+            }
+        }
+        return false;
     }
 }
