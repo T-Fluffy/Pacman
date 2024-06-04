@@ -19,3 +19,6 @@ the big,round and pinky tile is the PowerUp to weaken the ghost and the fruits g
 
 Its a simple project using tilemaps, tile rules, coroutines and the same old OOP concept. 
 
+* [You'll find a PC version here !](https://github.com/T-Fluffy/Pacman/tree/master/Pacman)
+
+Have fun :) 
