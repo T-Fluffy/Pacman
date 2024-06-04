@@ -56,5 +56,15 @@ public class Pacman : MonoBehaviour
         deathSequence.enabled = true;
         deathSequence.Restart();
     }
-
+    public void MoveRight(){
+        movement.SetDirection(Vector2.right);
+    }
+    public void MoveLeft(){
+        movement.SetDirection(Vector2.left);
+    }
+    public void MoveBack(){
+        movement.SetDirection(Vector2.down);
+    }
+    public void MoveUp(){
+        movement.SetDirection(Vector2.up);}
 }

@@ -207,10 +207,23 @@ public class GameManager : MonoBehaviour
     {
         ghostMultiplier = 1;
     }
+    // Exit UI
     public void Exit(){
         Application.Quit();
     }
-    
+    // Input
+    public void MoveRight() {
+        pacman.MoveRight();
+    }
+    public void MoveLeft() {
+        pacman.MoveLeft();
+    }
+    public void MoveBack() {
+        pacman.MoveBack();
+    }
+    public void MoveUp() {
+        pacman.MoveUp();
+    }
     // For apple eaten :
     public void AppleEaten(Apple apple)
     {
